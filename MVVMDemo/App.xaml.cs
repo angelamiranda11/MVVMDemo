@@ -13,5 +13,28 @@ namespace MVVMDemo
     /// </summary>
     public partial class App : Application
     {
+        private void ApplicationStart(object sender, StartupEventArgs e)
+        {
+            //Disable shutdown when the dialog closes
+            DBWindow dbWindow = new DBWindow();
+            dbWindow.Show();
+            /*Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
+
+            var dialog = new DBWindow();
+
+            if (dialog.ShowDialog() == true)
+            {
+                var mainWindow = new MainWindow(dialog.Data);
+                //Re-enable normal shutdown mode.
+                Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+                Current.MainWindow = mainWindow;
+                mainWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Unable to load data.", "Error", MessageBoxButton.OK);
+                Current.Shutdown(-1);
+            }*/
+        }
     }
 }

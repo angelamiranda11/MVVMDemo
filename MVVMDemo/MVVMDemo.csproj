@@ -101,9 +101,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CreateCustomer.xaml.cs">
+      <DependentUpon>CreateCustomer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DBWindow.xaml.cs">
       <DependentUpon>DBWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\DatabaseModel.cs" />
     <Compile Include="SideMenu.xaml.cs">
       <DependentUpon>SideMenu.xaml</DependentUpon>
     </Compile>
@@ -111,6 +115,10 @@
     <Compile Include="Views\StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
     </Compile>
+    <Page Include="CreateCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DBWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

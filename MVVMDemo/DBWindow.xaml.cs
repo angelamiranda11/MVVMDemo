@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MVVMDemo.Model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,20 +24,18 @@ namespace MVVMDemo
     /// </summary>
     public partial class DBWindow : Window
     {
-        private string server;
-        private string username;
-        private string password;
-        private string port;
-        private string databaseName;
+        public static readonly DatabaseModel databaseModel = new DatabaseModel();
         public DBWindow()
         {
             InitializeComponent();
+
+            //
             ServerTextBox.Text = "remotemysql.com";
             UsernameTextBox.Text = "jDBpcYZaXf";
             DatabaseTextBox.Text = "jDBpcYZaXf";
             PasswordTextBox.Password = "4tjzVi1OnP";
             PortTextBox.Text = "3306";
-
+            //
         }
 
 
@@ -50,29 +49,26 @@ namespace MVVMDemo
         private void connectDB()
         {
 
-            server = ServerTextBox.Text;
-            username = UsernameTextBox.Text;
-            password = PasswordTextBox.Password;
-            port = PortTextBox.Text;
-            databaseName = DatabaseTextBox.Text;
+            databaseModel.Server = ServerTextBox.Text;
+            databaseModel.Username = UsernameTextBox.Text;
+            databaseModel.Password = PasswordTextBox.Password;
+            databaseModel.Port = PortTextBox.Text;
+            databaseModel.Database = DatabaseTextBox.Text;
 
-
-            try
+            bool dbConnect = databaseModel.Login();
+            if (dbConnect)
             {
-                var connstr = "Server="+server+";Port = "+port+";Uid="+username+";Pwd="+password+";database="+databaseName+"";
-                using (var conn = new MySqlConnection(connstr))
-                {
-                    conn.Open();
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    this.Close();
-
-                }
-            }
-            catch (Exception ex)
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            } else
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("DB Error");
             }
+            
+
+            
+
 
 
         }

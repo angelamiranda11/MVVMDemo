@@ -65,7 +65,27 @@
                 <views:StudentView x:Name="StudentViewControl" Loaded="StudentViewControl_Loaded"/>
             </TabItem>
             <TabItem Header="Something else">
-                <TextBlock Text="Other page" />
+                <Grid Height="350" Width="625" Background="#FFD1F9EE">
+                    <TextBlock Height="32" HorizontalAlignment="Left" Margin="16,15,0,0" Name="textBlockHeading" Text="Customers" VerticalAlignment="Top" Width="310" FontSize="20" FontStretch="Normal" />
+                    <Grid HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="625">
+                        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="14,55,0,46" Name="dataGridCustomers" Width="575" ItemsSource="{Binding Path=LoadDataBinding}" CanUserResizeRows="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Path=CustomerID}" Header="CustomerID" Width="100" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Path=CompanyName}" Header="Name" Width="100" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Path=ContactTitle}" Header="Address" Width="150" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Path=Address}" Header="City" Width="100" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Path=ContactNo}" Header="Phone" Width="120" IsReadOnly="True" />
+                            </DataGrid.Columns>
+                            <DataGrid.ItemContainerStyle>
+                                <Style TargetType="DataGridRow">
+                                    <EventSetter Event="MouseDoubleClick" Handler="DataGrid_MouseRightButtonUp"/>
+                                </Style>
+                            </DataGrid.ItemContainerStyle>
+                        </DataGrid>
+                        <Button Content="Load Data" Height="25" HorizontalAlignment="Left" Margin="487,275,0,0" Name="btnloaddata" VerticalAlignment="Top" Width="100" Click="btnloaddata_Click" />
+                        <Button Content="Create Customer" Height="25" HorizontalAlignment="Left" Margin="380,275,0,0" Name="btncreatedata" VerticalAlignment="Top" Width="100" Click="btncreatedata_Click" />
+                    </Grid>
+                </Grid>
             </TabItem>
         </TabControl>
         

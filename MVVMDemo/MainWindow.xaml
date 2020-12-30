@@ -3,10 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MVVMDemo"
         xmlns:views="clr-namespace:MVVMDemo.Views"
         mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="15"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         Title="MainWindow" Height="500" Width="1000">
+
+
+    <!--///////////////////////////////////////////////////////////////////////////////-->
+    <!--///////////////////////////////////////////////////////////////////////////////-->
+    <!--///////////////////////////////////////////////////////////////////////////////-->
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <Style x:Key="ItemContainerStyle" TargetType="{x:Type TabItem}">
@@ -59,33 +72,68 @@
             </Setter>
         </Style>
     </Window.Resources>
+    
+    
+    
+    <!--///////////////////////////////////////////////////////////////////////////////-->
+    <!--///////////////////////////////////////////////////////////////////////////////-->
+    <!--///////////////////////////////////////////////////////////////////////////////-->
     <Grid>
         <TabControl Style="{DynamicResource TabControlStyle1}">
-            <TabItem Header="Student Names">
+            <TabItem Header="View Student Names">
                 <views:StudentView x:Name="StudentViewControl" Loaded="StudentViewControl_Loaded"/>
             </TabItem>
-            <TabItem Header="Something else">
-                <Grid Height="350" Width="625" Background="#FFD1F9EE">
-                    <TextBlock Height="32" HorizontalAlignment="Left" Margin="16,15,0,0" Name="textBlockHeading" Text="Customers" VerticalAlignment="Top" Width="310" FontSize="20" FontStretch="Normal" />
-                    <Grid HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="625">
-                        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="14,55,0,46" Name="dataGridCustomers" Width="575" ItemsSource="{Binding Path=LoadDataBinding}" CanUserResizeRows="False">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding Path=CustomerID}" Header="CustomerID" Width="100" IsReadOnly="True" />
-                                <DataGridTextColumn Binding="{Binding Path=CompanyName}" Header="Name" Width="100" IsReadOnly="True" />
-                                <DataGridTextColumn Binding="{Binding Path=ContactTitle}" Header="Address" Width="150" IsReadOnly="True" />
-                                <DataGridTextColumn Binding="{Binding Path=Address}" Header="City" Width="100" IsReadOnly="True" />
-                                <DataGridTextColumn Binding="{Binding Path=ContactNo}" Header="Phone" Width="120" IsReadOnly="True" />
-                            </DataGrid.Columns>
-                            <DataGrid.ItemContainerStyle>
-                                <Style TargetType="DataGridRow">
-                                    <EventSetter Event="MouseDoubleClick" Handler="DataGrid_MouseRightButtonUp"/>
-                                </Style>
-                            </DataGrid.ItemContainerStyle>
-                        </DataGrid>
-                        <Button Content="Load Data" Height="25" HorizontalAlignment="Left" Margin="487,275,0,0" Name="btnloaddata" VerticalAlignment="Top" Width="100" Click="btnloaddata_Click" />
-                        <Button Content="Create Customer" Height="25" HorizontalAlignment="Left" Margin="380,275,0,0" Name="btncreatedata" VerticalAlignment="Top" Width="100" Click="btncreatedata_Click" />
-                    </Grid>
-                </Grid>
+            <TabItem Header="Customer Records">
+                <StackPanel Background="#FFD1F9EE" Orientation="Vertical">
+                    <TextBlock 
+                        HorizontalAlignment="Left" 
+                        Margin="15,15,15,0" 
+                        Name="textBlockHeading" Text="Customer Records" 
+                        FontSize="20" FontStretch="Normal" />
+                    
+                    <DataGrid AutoGenerateColumns="False" 
+                              Margin="20 20 20 20"
+                              HorizontalAlignment="Stretch"
+                              Name="dataGridCustomers" 
+                              ItemsSource="{Binding Path=LoadDataBinding}" 
+                              CanUserResizeRows="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=CustomerID}" Header="Customer ID" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=CompanyName}" Header="Company Name" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=ContactTitle}" Header="Address" Width="150" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=Address}" Header="City" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=ContactNo}" Header="Phone" Width="120" IsReadOnly="True" />
+                        </DataGrid.Columns>
+                        <DataGrid.ItemContainerStyle>
+                            <Style TargetType="DataGridRow">
+                                <EventSetter Event="MouseDoubleClick" Handler="DataGrid_MouseRightButtonUp"/>
+                            </Style>
+                        </DataGrid.ItemContainerStyle>
+                    </DataGrid>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                Margin="20">
+                        <Button Content="Load Data" 
+                                Name="btnloaddata" 
+                                Click="btnloaddata_Click" 
+                                Margin="5 0 0 0"
+                                />
+                        <Button Content="Create Customer" 
+                                Name="btncreatedata" 
+                                Click="btncreatedata_Click" 
+                                Margin="5 0 0 0"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="All Machines">
+            </TabItem>
+            <TabItem Header="Per Cluster">
+            </TabItem>
+            <TabItem Header="Add a Machine">
+            </TabItem>
+            <TabItem Header="Remove a Machine">
+            </TabItem>
+            <TabItem Header="Downtime Reports">
             </TabItem>
         </TabControl>
         

@@ -4,20 +4,53 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMDemo"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="15"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
         Title="DBWindow" Height="450" Width="450">
-    <Grid>
-        <TextBox x:Name="ServerTextBox" HorizontalAlignment="Left" Height="23" Margin="161,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Left" Height="23" Margin="161,115,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="DatabaseTextBox" HorizontalAlignment="Left" Height="23" Margin="161,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="PortTextBox" HorizontalAlignment="Left" Height="23" Margin="161,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61"/>
-        <PasswordBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Margin="161,164,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Server" HorizontalAlignment="Left" Margin="69,61,0,0" VerticalAlignment="Top"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="69,112,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="69,156,0,0" VerticalAlignment="Top"/>
-        <Label Content="Port" HorizontalAlignment="Left" Margin="69,207,0,0" VerticalAlignment="Top"/>
-        <Label Content="Database Name" HorizontalAlignment="Left" Margin="69,240,0,0" VerticalAlignment="Top"/>
-        <Button Content="Connect" HorizontalAlignment="Left" Margin="287,284,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+    <GroupBox 
+        Header="Database Connection"
+        Style="{DynamicResource MaterialDesignGroupBox}"
+        Margin="16"
+        materialDesign:ShadowAssist.ShadowDepth="Depth3"
+        BorderThickness="0">
+        <StackPanel Orientation="Vertical">
+            <TextBox x:Name="ServerTextBox" 
+                     materialDesign:HintAssist.Hint="Server"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center"/>
+            
+            <TextBox x:Name="UsernameTextBox"
+                     materialDesign:HintAssist.Hint="Username"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center"/>
+            
+            <TextBox x:Name="DatabaseTextBox" 
+                     materialDesign:HintAssist.Hint="Database"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center"/>
+            
+            <TextBox x:Name="PortTextBox" 
+                     materialDesign:HintAssist.Hint="Port"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center"/>
+            
+            <PasswordBox x:Name="PasswordTextBox"
+                     materialDesign:HintAssist.Hint="Password"
+                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                     VerticalAlignment="Center"/>
+           
+            <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                Content="Connect" 
+                Width="100" Margin="20"
+                Click="Button_Click"/>
 
-    </Grid>
+        </StackPanel>
+        
+           
+    </GroupBox>
 </Window>

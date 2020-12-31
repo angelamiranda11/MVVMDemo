@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!-- DB WINDOW -->
+    <sys:String x:Key="DBWindowTitle">DBWindow</sys:String>
+    <sys:Double x:Key="DBWindowWidth">400</sys:Double>
+    <sys:Double x:Key="DBWindowHeight">500</sys:Double>
+
+    <!-- MAIN WINDOW -->
+    <sys:String x:Key="MainWindowTitle">Sentinel Management System</sys:String>
+    <sys:Double x:Key="MainWindowWidth">1000</sys:Double>
+    <sys:Double x:Key="MainWindowHeight">500</sys:Double>
+</ResourceDictionary>

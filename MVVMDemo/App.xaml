@@ -13,9 +13,14 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
-                
+
                 <!---GLOBAL STYLES-->
-                <ResourceDictionary Source="pack://application:,,,/MVVMDemo;component/Assets/Styles/styles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MVVMDemo;component/Assets/Styles/GlobalStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MVVMDemo;component/Assets/Styles/FieldStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MVVMDemo;component/Assets/Styles/ButtonStyles.xaml"/>
+                
+                <!---PROPERTIES-->
+                <ResourceDictionary Source="pack://application:,,,/MVVMDemo;component/Assets/Properties/WindowProperties.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

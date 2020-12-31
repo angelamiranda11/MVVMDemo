@@ -1,15 +1,17 @@
 ﻿<Window x:Class="MVVMDemo.DBWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVMDemo"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        TextElement.FontWeight="Regular"
-        TextElement.FontSize="15"
-        TextOptions.TextFormattingMode="Ideal"
-        TextOptions.TextRenderingMode="Auto"
-        Title="DBWindow" Height="450" Width="450">
+        TextElement.FontWeight="{StaticResource BaseFontWeight}"
+        TextElement.FontSize="{DynamicResource BaseFontSize}"
+        TextOptions.TextFormattingMode="{StaticResource BaseTextFormattingMode}"
+        TextOptions.TextRenderingMode="{StaticResource BaseTextRenderingMode}"
+        Title="{StaticResource DBWindowTitle}" 
+        Height="{StaticResource DBWindowHeight}" 
+        Width="{StaticResource DBWindowWidth}">
+    
+    
     <GroupBox 
         Header="Database Connection"
         Style="{DynamicResource MaterialDesignGroupBox}"
@@ -19,32 +21,32 @@
         <StackPanel Orientation="Vertical">
             <TextBox x:Name="ServerTextBox" 
                      materialDesign:HintAssist.Hint="Server"
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center"/>
             
             <TextBox x:Name="UsernameTextBox"
                      materialDesign:HintAssist.Hint="Username"
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     Style="{StaticResource FloatingHintTextBox}"
                      VerticalAlignment="Center"/>
             
             <TextBox x:Name="DatabaseTextBox" 
                      materialDesign:HintAssist.Hint="Database"
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     Style="{StaticResource FloatingHintTextBox}"
                      VerticalAlignment="Center"/>
             
             <TextBox x:Name="PortTextBox" 
                      materialDesign:HintAssist.Hint="Port"
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     Style="{StaticResource FloatingHintTextBox}"
                      VerticalAlignment="Center"/>
             
             <PasswordBox x:Name="PasswordTextBox"
                      materialDesign:HintAssist.Hint="Password"
-                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                     Style="{StaticResource FloatingHintPasswordBox}"
                      VerticalAlignment="Center"/>
            
-            <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+            <Button x:Name="SubmitButton"
+                Style="{StaticResource RaisedDarkButton}" 
                 Content="Connect" 
-                Width="100" Margin="20"
+                Width="100"
                 Click="Button_Click"/>
 
         </StackPanel>

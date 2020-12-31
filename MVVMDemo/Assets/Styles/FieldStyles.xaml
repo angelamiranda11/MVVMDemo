@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="FloatingHintTextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+           TargetType="{x:Type TextBox}">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Margin" Value="0 10 0 0"/> <!---Left top right bottom-->
+    </Style>
+
+    <Style x:Key="FloatingHintPasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+           TargetType="{x:Type PasswordBox}">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Margin" Value="0 15 0 0"/> <!---Left top right bottom-->
+    </Style>
+
+</ResourceDictionary>

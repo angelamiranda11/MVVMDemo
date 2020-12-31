@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--- FONTS -->
+    <sys:Double x:Key="BaseFontSize">15</sys:Double>
+    <FontWeight x:Key="BaseFontWeight">Regular</FontWeight>
+
+    <!--- TEXT MODE -->
+    <TextFormattingMode x:Key="BaseTextFormattingMode">Ideal</TextFormattingMode>
+    <TextRenderingMode x:Key="BaseTextRenderingMode">Auto</TextRenderingMode>
+    
+    <!---WINDOW SIZE-->
+    <sys:Double x:Key="BaseWindowWidth">400</sys:Double>
+    <sys:Double x:Key="BaseWindowHeight">400</sys:Double>
+</ResourceDictionary>

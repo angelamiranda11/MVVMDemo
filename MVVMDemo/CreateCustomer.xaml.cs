@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMDemo.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,12 +38,18 @@ public CreateCustomer()
             address = AddressTextBox.Text;
             contactNo = ContactNoTextBox.Text;
 
-            string query = "INSERT INTO customers (CompanyName, ContactTitle, Address, ContactNo) VALUES('"+companyName+"', '"+contactTitle+"', '"+address+"', '"+contactNo+"') ";
+            string query = "INSERT INTO customers (CompanyName, ContactTitle, Address, ContactNo) VALUES(@companyName, @contactTitle, @address, @contactNo) ";
             if(type == "Update")
             {
-                query = "UPDATE customers SET CompanyName = '"+companyName+"', ContactTitle = '"+contactTitle+"', Address = '"+address+"', ContactNo = '"+contactNo+"' WHERE CustomerID = "+customerId+";";
+                query = "UPDATE customers SET CompanyName = @companyName, ContactTitle = @contactTitle, Address = @address, ContactNo = @contactNo WHERE CustomerID = @customerId;";
             }
-            DBWindow.databaseModel.ExecuteQuery(query);
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@companyName", companyName);
+            parameters.Add("@contactTitle", contactTitle);
+            parameters.Add("@address", address);
+            parameters.Add("@contactNo", contactNo);
+            parameters.Add("@customerId", customerId);
+            SingletonClass.databaseClass.ExecuteQuery(query,parameters);
             this.Close();
             
         }

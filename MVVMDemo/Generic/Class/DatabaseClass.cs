@@ -1,10 +1,12 @@
 ﻿using MySqlConnector;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace MVVMDemo.Model
 {
-    public class DatabaseModel
+    public class DatabaseClass
     {
 
         public string Server { get; set; }
@@ -32,11 +34,20 @@ namespace MVVMDemo.Model
                 return false;
             }
         }
-        
-        public DataSet ExecuteQuery(string query)
+
+        public DataSet ExecuteQuery(string query, Dictionary<string, object> parameters = null)
         {
             this.Connect();
             MySqlCommand cmd = new MySqlCommand(query, connection);
+            if (parameters != null)
+            {
+                for (int counter = 0; counter < parameters.Count; counter++)
+                {
+                    var key = parameters.ElementAt(counter).Key;
+                    cmd.Parameters.AddWithValue(key, parameters[key]);
+                }
+            }
+            
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             adp.Fill(ds, "LoadDataBinding");

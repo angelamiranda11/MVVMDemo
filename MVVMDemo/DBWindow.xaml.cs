@@ -24,7 +24,7 @@ namespace MVVMDemo
     /// </summary>
     public partial class DBWindow : Window
     {
-        public static readonly DatabaseModel databaseModel = new DatabaseModel();
+        DatabaseClass databaseModel = SingletonClass.databaseClass;
         public DBWindow()
         {
             InitializeComponent();

@@ -121,8 +121,10 @@
     <Compile Include="DBWindow.xaml.cs">
       <DependentUpon>DBWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\DatabaseModel.cs" />
+    <Compile Include="Generic\Class\DatabaseClass.cs" />
+    <Compile Include="Generic\Helper\NumberValidation.cs" />
     <Compile Include="Model\MachineModel.cs" />
+    <Compile Include="Generic\Class\SingletonClass.cs" />
     <Compile Include="SideMenu.xaml.cs">
       <DependentUpon>SideMenu.xaml</DependentUpon>
     </Compile>
@@ -198,6 +200,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

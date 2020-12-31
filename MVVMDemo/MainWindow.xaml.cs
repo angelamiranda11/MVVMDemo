@@ -24,7 +24,7 @@ namespace MVVMDemo
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DatabaseModel dbModel = DBWindow.databaseModel;
+        private DatabaseClass dbModel = SingletonClass.databaseClass;
         private DataSet ds;
         public MainWindow()
         {
